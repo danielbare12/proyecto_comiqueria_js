@@ -1,4 +1,6 @@
-const listaComics = JSON.parse(localStorage.getItem("listaDeProductos"));
+//const listaComics = JSON.parse(localStorage.getItem("listaDeProductos"));
+
+
 
 let formulario = document.getElementById("formulario");
 let busqueda = document.getElementById("buscador");
@@ -8,10 +10,17 @@ formulario.addEventListener("submit",buscar);
 
 function buscar(e){
     e.preventDefault();
+//usando fetch
+    fetch('../BaseDeDatos/comics.json')
+    .then((res) => res.json())
+    .then((listaComics) => {
+        const resultado = listaComics.filter((comic) => comic.titulo.toLowerCase().includes(busqueda.value.toLowerCase()));
+        mostrarLista(resultado);
+        resultado.splice(0,resultado.length);
+
+    })
    
-    const resultado = listaComics.filter((comic) => comic.titulo.toLowerCase().includes(busqueda.value.toLowerCase()));
-    mostrarLista(resultado);
-    resultado.splice(0,resultado.length);
+    
 
 
 }
