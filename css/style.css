@@ -1,0 +1,47 @@
+footer {
+    position: absolute;
+}
+
+.card {
+    width: 70%;
+}
+
+#listaProductos{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: center;
+    grid-row-gap: 20px;
+}
+
+#listaBuscada{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: center;
+    grid-row-gap: 20px;
+}
+
+.productoCarrito{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    border: black 1px groove;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+
+}
+
+.imagenCarrito{
+    width: 50%;
+}
+
+#botonFinalizar{
+    
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+#precioTotal {
+    display: flex;
+    justify-content: center;
+    
+}
