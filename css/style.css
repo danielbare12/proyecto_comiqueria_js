@@ -1,28 +1,74 @@
-footer {
-    position: absolute;
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: gray;
+}
+
+.subnav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-transform: uppercase;
+}
+
+main{
+    margin-left: 5%;
+    margin-bottom: 3%;
+
+}
+
+.mainPrincipal{
+    text-align: center;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 70%;
+}
+
+.carrito{
+    width: 10%;
 }
 
 .card {
     width: 70%;
 }
 
-#listaProductos{
+.mainCarrito{
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+#listaProductos {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    grid-row-gap: 20px;
+}
+
+#listaBuscada {
     display: grid;
     grid-template-columns: 30% 30% 30%;
     justify-content: center;
     grid-row-gap: 20px;
 }
 
-#listaBuscada{
+.productoCarrito {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    justify-content: center;
-    grid-row-gap: 20px;
-}
-
-.productoCarrito{
-    display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% 70% 10%;
     border: black 1px groove;
     margin-left: 5%;
     margin-right: 5%;
@@ -30,18 +76,45 @@ footer {
 
 }
 
-.imagenCarrito{
+.espacioCerrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imagenCarrito {
     width: 50%;
 }
 
-#botonFinalizar{
-    
+.descripcionCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mensajeVacio{
+    font-size: 15vh;
+    color: gainsboro;
+    text-align: center;
+}
+
+#botonFinalizar {
+
     margin-left: 10%;
     margin-top: 5%;
+    margin-bottom: 2%;
 }
 
 #precioTotal {
     display: flex;
     justify-content: center;
-    
+    margin-top: auto;
+
+}
+
+footer {
+
+    margin-top: auto;
+
+    background-color: gray;
 }
