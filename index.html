@@ -13,46 +13,26 @@
 </head>
 
 <body>
-  <!--
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./secciones/carrito.html">Carrito</a>
-          </li>
-        </ul>
-        <form id="formulario" class="d-flex">
-          <input id="buscador" class="form-control me-2" type="search" placeholder="Ej: batman" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
-      </div>
+  <nav class="navegador">
+
+
+    <div>
+      <a href=""><img class="logo" src="./media/logo.png" alt=""></a>
     </div>
--->
-    <nav>
-      <div class="subnav">
-        <a href="./secciones/carrito.html"><img class="carrito" src="./media/carrito-de-compras.png" alt=""></a>
-      </div>
-      
-      <div>
-        <a href=""><img class="logo" src="./media/logo.png" alt=""></a>
-      </div>
-      <div class="subnav">
-        
-        <form id="formulario" class="d-flex">
-          <input id="buscador" class="form-control me-2" type="search" placeholder="Ej: batman" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
-      </div>
-    </nav>
+    
+  <div class="subnav">
+    <form id="formulario" class="d-flex">
+      <input id="buscador" class="form-control me-2" type="search" placeholder="Ej: batman" aria-label="Search">
+      <button class="btn btn-dark botonBuscar" type="submit">Buscar</button>
+    </form>
+  </div>
+  
+  <div class="contenedorCarro">
+
+    <div><a href="./secciones/carrito.html"><img class="carrito" src="./media/carrito-de-compras.png" alt=""></a></div>
+    <div class="cantidadEnCarrito"></div>
+
+  </div>
   </nav>
   <main class="mainPrincipal">
     <h1>Bienvenidos a Universe, La tienda de comics online</h1>
@@ -61,7 +41,7 @@
       <h2>Productos</h2>
 
       <div id="listaProductos">
-        
+
       </div>
     </div>
 
@@ -70,6 +50,14 @@
 
   <footer>
     <p>Diseñado por Daniel Bareiro</p>
+    <div>
+
+      <a href="wa.link/067zuo"><img src="./media/whatsappIcon.png" alt="Aqui va el icono de whatsapp" class="icono"></a>
+      <a href="https://www.instagram.com/instagram/?hl=es-la"><img src="./media/instagramIcon.png"
+          alt="Aqui va el icono de instagram" class="icono"></a>
+      <a href="https://www.facebook.com/facebookapp/?brand_redir=185150934832623"><img src="./media/facebookIcon.png"
+          alt="Aqui va el icono de facebook" class="icono"></a>
+    </div>
 
   </footer>
 

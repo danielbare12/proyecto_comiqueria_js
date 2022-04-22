@@ -1,55 +1,104 @@
-nav{
+nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00867d;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.contenedorCarro{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aqua;
+    border-radius: 50%;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.cantidadEnCarrito{
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+.carrito {
+    width: 60%;
+}
+
+
+.botonBuscar {
     background-color: gray;
 }
 
-.subnav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     text-transform: uppercase;
+    background-color: #82e9de;
+
 }
 
-main{
+h1 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.mainPrincipal h2 {
+    margin-bottom: 30px;
+    text-decoration: underline;
+
+}
+
+main {
     margin-left: 5%;
-    margin-bottom: 3%;
+    padding-bottom: 3%;
+    margin-right: 5%;
 
 }
 
-.mainPrincipal{
+.mainPrincipal {
     text-align: center;
 }
 
-.card-body{
+.card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     width: 70%;
+
 }
 
-.carrito{
-    width: 10%;
-}
 
 .card {
     width: 70%;
+
+    background-color: #4db6ac;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.mainCarrito{
+
+.mainCarrito {
     display: flex;
     flex-direction: column;
     min-height: 80vh;
+}
+
+.mainCarrito h1 {
+    text-align: center;
+    text-decoration: underline;
 }
 
 #listaProductos {
@@ -59,24 +108,20 @@ main{
     grid-row-gap: 20px;
 }
 
-#listaBuscada {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    justify-content: center;
-    grid-row-gap: 20px;
-}
-
 .productoCarrito {
     display: grid;
-    grid-template-columns: 20% 70% 10%;
+    grid-template-columns: 20% 80%;
     border: black 1px groove;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 1%;
+    background-color: #4db6ac;
 
 }
 
-.espacioCerrar{
+
+
+.espacioCerrar {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,16 +131,39 @@ main{
     width: 50%;
 }
 
-.descripcionCarrito{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.descripcionCarrito {
+    display: grid;
+    grid-template-columns: 70% 20% 10%;
 }
 
-.mensajeVacio{
+.descripcionCarrito div .tituloProducto {
+    width: 100%;
+}
+
+.cantidadCarrito {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenedorVacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black 3px;
+}
+
+.mensajeVacio {
     font-size: 15vh;
-    color: gainsboro;
+    text-decoration: #000000;
     text-align: center;
+}
+
+.contenedorBotonFinalizar {
+    border-top: solid black 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 #botonFinalizar {
@@ -108,13 +176,35 @@ main{
 #precioTotal {
     display: flex;
     justify-content: center;
-    margin-top: auto;
+    margin-top: 10px;
+    border-top: solid black 2px;
 
+}
+
+#precioTotal p {
+    font-size: x-large;
+    text-decoration: underline;
 }
 
 footer {
 
-    margin-top: auto;
+    padding-right: 5%;
+    padding-left: 5%;
 
-    background-color: gray;
+    background-color: #00867d;
+    background-color: #afc2cb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    box-shadow: 0px 5px 5px 5px black;
+}
+
+footer div {
+    margin-top: 10px;
+}
+
+.icono {
+    width: 50px;
+    height: 50px;
 }

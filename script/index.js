@@ -1,3 +1,20 @@
+//Navegador
+
+let cantidadCarrito = document.querySelector(".cantidadEnCarrito");
+
+function mostrarCantidad(){
+    
+    let cantidad = document.createElement("div");
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    let resultado = carrito.map((comic) => comic.cantidad);
+    let totalResultado = resultado.reduce((a,b) => a + b, 0);
+
+    cantidad.innerHTML = `<p>${totalResultado}</p>`;
+
+    cantidadCarrito.append(cantidad);
+}
+
 
 let listaOrd = document.getElementById("listaProductos");
 //mostrando en la pagina
@@ -15,6 +32,7 @@ async function cargarPagina() {
     });
 }
 
+mostrarCantidad();
 cargarPagina();
 
 function mostrarLista(listaComics) {
@@ -60,9 +78,9 @@ async function agregarProducto(e) {
     console.log(tituloProducto);
     //usando fetch
 
-    if(titulosCarrito.includes(tituloProducto)){
-        for(let i = 0; i < carrito.length; i++){
-            if(carrito[i].titulo == tituloProducto){
+    if (titulosCarrito.includes(tituloProducto)) {
+        for (let i = 0; i < carrito.length; i++) {
+            if (carrito[i].titulo == tituloProducto) {
                 carrito[i].cantidad++;
                 console.log("Entro aqui")
             }
@@ -73,28 +91,27 @@ async function agregarProducto(e) {
             listaComics[i].titulo == tituloProducto && carrito.push(listaComics[i]);
         }
     }
-    
 
-    
-        
+    const listaEnJsonCarrito = JSON.stringify(carrito);
+    localStorage.setItem("carrito", listaEnJsonCarrito);
+    //Le avisa al usuario que se agrego al carrito
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        destination: "./secciones/carrito.html",
+        newWindow: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "rgb(2,0,36)",
+            background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(6,159,199,1) 0%, rgba(3,185,226,1) 0%, rgba(185,210,232,1) 0%, rgba(62,177,223,1) 100%, rgba(0,212,255,1) 100%)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
 
-        const listaEnJsonCarrito = JSON.stringify(carrito);
-        localStorage.setItem("carrito", listaEnJsonCarrito);
-        //Le avisa al usuario que se agrego al carrito
-        Toastify({
-            text: "Agregado al carrito",
-            duration: 3000,
-            destination: "./secciones/carrito.html",
-            newWindow: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-                background: "rgb(2,0,36)",
-                background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(6,159,199,1) 0%, rgba(3,185,226,1) 0%, rgba(185,210,232,1) 0%, rgba(62,177,223,1) 100%, rgba(0,212,255,1) 100%)",
-            },
-            onClick: function () { } // Callback after click
-        }).showToast();
+    cantidadCarrito.innerHTML = '';
+    mostrarCantidad();
 
 }
 

@@ -1,17 +1,13 @@
 const listaProductos = JSON.parse(localStorage.getItem("carrito"));
-const listaProductos2 = removeDuplicates(listaProductos);
-
-function removeDuplicates(arr) {
-    return arr.filter((item, 
-        index) => arr.indexOf(item) === index);
-}
 
 let listaCarrito = document.getElementById("listaCarrito");
 
 if(listaProductos.length == 0){
     let mensajeVacio = document.createElement("div");
+    mensajeVacio.classList.add("contenedorVacio");
 
-    mensajeVacio.innerHTML = `<h2 class="mensajeVacio">EL CARRITO ESTA VACIO</h2>`;
+    mensajeVacio.innerHTML = `<h2 class="mensajeVacio">EL CARRITO ESTA VACIO</h2>
+                                <img src="../media/carro-vacio.png" alt="">`;
 
     listaCarrito.append(mensajeVacio);
 } else {
@@ -39,7 +35,7 @@ if(listaProductos.length == 0){
              <p>Precio: ${comicPrecio}</p>
              <p>Autor: ${comicAutor}</p>
              </div>
-             <div>Cantidad: ${comicCantidad}</div>
+             <div class="cantidadCarrito"><p>Cantidad: ${comicCantidad}</p></div>
              <div class="espacioCerrar"><button type="button" class="btn-close botonCerrar" aria-label="Close"></button></div>
             </div>
         `;
@@ -62,9 +58,8 @@ function cantidad(idcomic){
 }
 
 let total = document.getElementById("precioTotal");
-const listaPrecios = listaProductos.map((a) => a.precio);
 
-total.innerText = `TOTAL: ${sumar(...listaPrecios)}`;
+total.innerHTML = `<p>TOTAL: ${sumar(listaProductos)}</p>`;
 
 let botonFinalizar = document.getElementById("botonFinalizar");
 botonFinalizar.addEventListener("click", finalizar);
@@ -109,6 +104,12 @@ function eliminarProducto(e){
 
 
 //Funcion para sumar un grupo de numeros con spread
-function sumar(...listaNumeros) {
-    return listaNumeros.reduce((a, b) => a + b, 0);
+function sumar(listaComics) {
+    let total=0;
+
+    for(let i = 0; i < listaComics.length;i++){
+        total += listaComics[i].precio*listaComics[i].cantidad;
+    }
+
+    return total;
 }
