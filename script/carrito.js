@@ -1,54 +1,86 @@
-const listaProductos = JSON.parse(localStorage.getItem("carrito"));
+const listaProductos = JSON.parse(localStorage.getItem("carrito")) || [];
 
 let listaCarrito = document.getElementById("listaCarrito");
 
-if(listaProductos.length == 0){
-    let mensajeVacio = document.createElement("div");
-    mensajeVacio.classList.add("contenedorVacio");
+let cantidadCarrito = document.querySelector(".cantidadEnCarrito");
 
-    mensajeVacio.innerHTML = `<h2 class="mensajeVacio">EL CARRITO ESTA VACIO</h2>
-                                <img src="../media/carro-vacio.png" alt="">`;
-
-    listaCarrito.append(mensajeVacio);
-} else {
-
-    for (const comic of listaProductos) {
-        let articulo = document.createElement("div");
+function mostrarCantidad(){
     
-        articulo.classList.add("productoCarrito");
-        //desestructuracion
-        const {
-            id: comicId,
-            titulo: comicTitulo,
-            precio: comicPrecio,
-            autor: comicAutor,
-            imagen: comicImagen,
-            cantidad: comicCantidad
-        } = comic
+    let cantidad = document.createElement("div");
+
+    let resultado = listaProductos.map((comic) => comic.cantidad);
+    let totalResultado = resultado.reduce((a,b) => a + b, 0);
+
+    cantidad.innerHTML = `<p>${totalResultado}</p>`;
+
+    cantidadCarrito.append(cantidad);
+}
+
+mostrarCantidad();
+cargarPagina();
+
+function cargarPagina(){
+    if(listaProductos.length == 0){
+        let mensajeVacio = document.createElement("div");
+        mensajeVacio.classList.add("contenedorVacio");
     
-        articulo.innerHTML = `<div>
-        <img  class="imagenCarrito" src=".${comicImagen}" alt="">
+        mensajeVacio.innerHTML = `<h2 class="mensajeVacio">EL CARRITO ESTA VACIO</h2>
+                                    <img src="../media/carro-vacio.png" alt="">`;
+    
+        listaCarrito.append(mensajeVacio);
+    } else {
+    
+        for (const comic of listaProductos) {
+            let articulo = document.createElement("div");
+        
+            articulo.classList.add("productoCarrito");
+            //desestructuracion
+            const {
+                id: comicId,
+                titulo: comicTitulo,
+                precio: comicPrecio,
+                autor: comicAutor,
+                imagen: comicImagen,
+                cantidad: comicCantidad
+            } = comic
+        
+            articulo.innerHTML = `<div>
+            <img  class="imagenCarrito" src=".${comicImagen}" alt="">
+                    </div>
+                <div class="descripcionCarrito">
+                <div>
+                 <h2 class="tituloProducto">${comicTitulo}</h2>
+                 <p>Precio: ${comicPrecio}</p>
+                 <p>Autor: ${comicAutor}</p>
+                 </div>
+                 <div class="cantidadCarrito"><p>Cantidad: ${comicCantidad}</p></div>
+                 <div class="modificadorCantidad"><img class="aumentador" src="../media/suma.png" alt=""><img class="disminuidor" src="../media/resta.png" alt=""></div>
+                 <div class="espacioCerrar"><button type="button" class="btn-close botonCerrar" aria-label="Close"></button></div>
                 </div>
-            <div class="descripcionCarrito">
-            <div>
-             <h2 class="tituloProducto">${comicTitulo}</h2>
-             <p>Precio: ${comicPrecio}</p>
-             <p>Autor: ${comicAutor}</p>
-             </div>
-             <div class="cantidadCarrito"><p>Cantidad: ${comicCantidad}</p></div>
-             <div class="espacioCerrar"><button type="button" class="btn-close botonCerrar" aria-label="Close"></button></div>
-            </div>
-        `;
+            `;
+        
+            listaCarrito.append(articulo);
+        
+        }
     
-        listaCarrito.append(articulo);
+        const botonesCerrar = document.querySelectorAll(".botonCerrar");
+        botonesCerrar.forEach(element => {
+            element.addEventListener("click", eliminarProducto)
+        });
+    
+        const botonesAumentar = document.querySelectorAll(".aumentador");
+        botonesAumentar.forEach(element => {
+            element.addEventListener("click",aumentarCantidad)
+        });
+    
+        const botonesDisminuir = document.querySelectorAll(".disminuidor");
+        botonesDisminuir.forEach(element => {
+            element.addEventListener("click",disminuirCantidad)
+        });
+    
     
     }
-
-    const botonesCerrar = document.querySelectorAll(".botonCerrar");
-    botonesCerrar.forEach(element => {
-        element.addEventListener("click", eliminarProducto)
-    });
-
+    
 
 }
 
@@ -112,4 +144,39 @@ function sumar(listaComics) {
     }
 
     return total;
+}
+
+function aumentarCantidad(e){
+    const producto = e.target.closest(".descripcionCarrito");
+    const tituloProducto = producto.querySelector(".tituloProducto").textContent;
+
+    console.log(tituloProducto);
+
+    for(let i = 0; i < listaProductos.length; i++){
+        listaProductos[i].titulo == tituloProducto && listaProductos[i].cantidad++;
+    }
+
+    const listaEnJsonCarrito = JSON.stringify(listaProductos);
+    localStorage.setItem("carrito", listaEnJsonCarrito);
+
+    document.location.reload(true);
+
+}
+
+function disminuirCantidad(e){
+    const producto = e.target.closest(".descripcionCarrito");
+    const tituloProducto = producto.querySelector(".tituloProducto").textContent;
+
+    console.log(tituloProducto);
+
+    for(let i = 0; i < listaProductos.length; i++){
+        listaProductos[i].titulo == tituloProducto && listaProductos[i].cantidad--;
+    }
+
+    let resultado = listaProductos.filter((comic) => comic.cantidad >= 1);
+
+    const listaEnJsonCarrito = JSON.stringify(resultado);
+    localStorage.setItem("carrito", listaEnJsonCarrito);
+    document.location.reload(true);
+
 }

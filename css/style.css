@@ -21,6 +21,7 @@ nav {
     border-radius: 50%;
     padding-left: 25px;
     padding-top: 10px;
+    border: solid black 2px;
 }
 
 .cantidadEnCarrito{
@@ -133,7 +134,22 @@ main {
 
 .descripcionCarrito {
     display: grid;
-    grid-template-columns: 70% 20% 10%;
+    grid-template-columns: 60% 20% 10% 10%;
+}
+
+.modificadorCantidad{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
+}
+
+.aumentador{
+    cursor: pointer;
+}
+
+.disminuidor{
+    cursor: pointer;
 }
 
 .descripcionCarrito div .tituloProducto {
