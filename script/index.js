@@ -1,23 +1,27 @@
-//Navegador
+//mostrando en la pagina
 
 let cantidadCarrito = document.querySelector(".cantidadEnCarrito");
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-function mostrarCantidad(){
-    
+mostrarCantidad();
+cargarPagina();
+
+//Mostrando cantidad de productos en el carrito en total aunque se repitan 
+
+function mostrarCantidad() {
+
     let cantidad = document.createElement("div");
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
     let resultado = carrito.map((comic) => comic.cantidad);
-    let totalResultado = resultado.reduce((a,b) => a + b, 0);
+    let totalResultado = resultado.reduce((a, b) => a + b, 0);
 
     cantidad.innerHTML = `<p>${totalResultado}</p>`;
 
     cantidadCarrito.append(cantidad);
 }
 
+//En esta funcion se carga la pagina para mostrar los productos
 
 let listaOrd = document.getElementById("listaProductos");
-//mostrando en la pagina
 
 async function cargarPagina() {
     //usando fetch
@@ -25,15 +29,9 @@ async function cargarPagina() {
     const listaComics = await resp.json();
 
     mostrarLista(listaComics);
-
-    const botones = document.querySelectorAll(".boton");
-    botones.forEach(element => {
-        element.addEventListener("click", agregarProducto)
-    });
 }
 
-mostrarCantidad();
-cargarPagina();
+//En esta funcion se muestran los productos, se creo una funcion por que se reutiliza
 
 function mostrarLista(listaComics) {
     for (const comic of listaComics) {
@@ -61,16 +59,19 @@ function mostrarLista(listaComics) {
 
         listaOrd.append(articulo);
     }
+    const botones = document.querySelectorAll(".boton");
+    botones.forEach((element) => {
+        element.addEventListener("click", agregarProducto)
+    });
 }
 
-//agregando al carrito
+//En esta funcion se agregan al carrito
 
 async function agregarProducto(e) {
     const resp = await fetch('./BaseDeDatos/comics.json');
     const listaComics = await resp.json();
 
     //condicional
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const producto = e.target.closest(".card");
     const tituloProducto = producto.querySelector(".card-title").textContent;
     const titulosCarrito = carrito.map((producto) => producto.titulo);
@@ -82,7 +83,6 @@ async function agregarProducto(e) {
         for (let i = 0; i < carrito.length; i++) {
             if (carrito[i].titulo == tituloProducto) {
                 carrito[i].cantidad++;
-                console.log("Entro aqui")
             }
         }
     } else {
@@ -99,7 +99,7 @@ async function agregarProducto(e) {
         text: "Agregado al carrito",
         duration: 3000,
         destination: "./secciones/carrito.html",
-        newWindow: true,
+        newWindow: false,
         gravity: "top", // `top` or `bottom`
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
@@ -115,12 +115,15 @@ async function agregarProducto(e) {
 
 }
 
+//Aca se filtran los productos para que muestren los comics que el usuario quiere ver
+
 let formulario = document.getElementById("formulario");
 let busqueda = document.getElementById("buscador");
 
 formulario.addEventListener("submit", buscar);
 
 function buscar(e) {
+
     e.preventDefault();
     //usando fetch
     fetch('../BaseDeDatos/comics.json')
@@ -137,12 +140,9 @@ function buscar(e) {
             } else {
                 listaProductos.innerHTML = '';
                 mostrarLista(resultado);
-                const botones = document.querySelectorAll(".boton");
-                botones.forEach(element => {
-                    element.addEventListener("click", agregarProducto)
-                });
                 resultado.splice(0, resultado.length);
 
             }
         })
 }
+

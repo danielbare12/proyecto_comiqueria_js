@@ -1,3 +1,5 @@
+/*Estilos del navegador*/
+
 nav {
     display: flex;
     flex-direction: row;
@@ -9,6 +11,28 @@ nav {
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.logo {
+    width: 70%;
+
+}
+
+.carritoIcono {
+    width: 60%;
+}
+
+.cantidadEnCarrito{
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+.cantidadProducto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contenedorCarro{
@@ -24,16 +48,8 @@ nav {
     border: solid black 2px;
 }
 
-.cantidadEnCarrito{
-    padding-left: 15px;
-    font-weight: bold;
-    font-size: large;
-}
+/*--------------Estilos del index.--------------------------------------------*/
 
-
-.carrito {
-    width: 60%;
-}
 
 
 .botonBuscar {
@@ -52,12 +68,6 @@ h1 {
     font-weight: bold;
 }
 
-.mainPrincipal h2 {
-    margin-bottom: 30px;
-    text-decoration: underline;
-
-}
-
 main {
     margin-left: 5%;
     padding-bottom: 3%;
@@ -65,20 +75,32 @@ main {
 
 }
 
+.mainPrincipal h2 {
+    margin-bottom: 30px;
+    text-decoration: underline;
+
+}
+
 .mainPrincipal {
     text-align: center;
 }
+
+
+
+
 
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
-.logo {
-    width: 70%;
-
+.card-title{
+    font-size: 100%;
 }
+
+
 
 
 .card {
@@ -90,6 +112,7 @@ main {
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+/*--------Estilos del carrito-----------------------------------------------------*/
 
 .mainCarrito {
     display: flex;
@@ -102,12 +125,6 @@ main {
     text-decoration: underline;
 }
 
-#listaProductos {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-content: center;
-    grid-row-gap: 20px;
-}
 
 .productoCarrito {
     display: grid;
@@ -156,11 +173,7 @@ main {
     width: 100%;
 }
 
-.cantidadCarrito {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .contenedorVacio {
     display: flex;
@@ -169,11 +182,7 @@ main {
     border: solid black 3px;
 }
 
-.mensajeVacio {
-    font-size: 15vh;
-    text-decoration: #000000;
-    text-align: center;
-}
+
 
 .contenedorBotonFinalizar {
     border-top: solid black 2px;
@@ -202,6 +211,8 @@ main {
     text-decoration: underline;
 }
 
+/*----------------------Estilos del footer-----------*/
+
 footer {
 
     padding-right: 5%;
@@ -223,4 +234,48 @@ footer div {
 .icono {
     width: 50px;
     height: 50px;
+}
+
+@media only screen and (min-width: 760px){
+    #listaProductos {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        justify-content: center;
+        grid-row-gap: 20px;
+    }
+
+    .card-text{
+        font-size: 100%;
+    }
+
+    .mensajeVacio {
+        font-size: 15vh;
+        text-decoration: #000000;
+        text-align: center;
+        
+    }
+
+}
+
+@media only screen and (max-width: 759px){
+    #listaProductos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+        grid-row-gap: 20px;
+    }
+
+    .card-text{
+        font-size: 70%;
+    }
+
+    .descripcionCarrito div .tituloProducto {
+        font-size: 100%;
+    }
+
+    .cantidadCarrito{
+        font-size: 50%;
+    }
+
+
 }

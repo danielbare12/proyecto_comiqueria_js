@@ -1,11 +1,11 @@
 [
     {"id":1,"titulo":"Batman: La Broma Asesina","precio":1800,"autor":"Alan Moore","imagen":"./media/batman1.webp","cantidad":1},
-    {"id":2,"titulo":"Batman: El Regreso Del Caballero Oscuro","precio":2300,"autor":"Frank Miller","imagen":"./media/batman2.jpg","cantidad":1},
+    {"id":2,"titulo":"Superman: Hijo Rojo","precio":1700,"autor":"Mark Millar","imagen":"./media/superman.jpg","cantidad":1},
     {"id":3,"titulo":"Batman: Año Uno","precio":1700,"autor":"Frank Miller","imagen":"./media/batman3.jpg","cantidad":1},
     {"id":4,"titulo":"Watchmen","precio":3000,"autor":"Alan Moore","imagen":"./media/watchmen.png","cantidad":1},
     {"id":5,"titulo":"Spiderman: La Última Cacería De Kraven","precio":1400,"autor":"J. M. DeMatteis","imagen":"./media/spiderman.webp","cantidad":1},
     {"id":6,"titulo":"One Piece Volumen 1","precio":600,"autor":"Eichiro Oda","imagen":"./media/onepiece.jpg","cantidad":1},
     {"id":7,"titulo":"One Piece Volumen 2","precio":600,"autor":"Eichiro Oda","imagen":"./media/onepiece2.jpg","cantidad":1},
     {"id":8,"titulo":"Sandman","precio":3000,"autor":"Warren Ellis","imagen":"./media/sandman.jpg","cantidad":1},
-    {"id":9,"titulo":"Superman: Hijo Rojo","precio":1700,"autor":"Mark Millar","imagen":"./media/superman.jpg","cantidad":1}
+    {"id":9,"titulo":"Batman: El Regreso Del Caballero Oscuro","precio":2300,"autor":"Frank Miller","imagen":"./media/batman2.jpg","cantidad":1}
 ]
