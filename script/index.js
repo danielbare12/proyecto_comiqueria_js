@@ -31,7 +31,7 @@ async function cargarPagina() {
     mostrarLista(listaComics);
 }
 
-//En esta funcion se muestran los productos, se creo una funcion por que se reutiliza
+//En esta funcion se muestran los productos
 
 function mostrarLista(listaComics) {
     for (const comic of listaComics) {
