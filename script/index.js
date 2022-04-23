@@ -52,8 +52,8 @@ function mostrarLista(listaComics) {
         <img src="${comicImagen}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${comicTitulo}</h5>
-          <p class="card-text">Precio: ${comicPrecio}</p>
           <p class="card-text">Autor: ${comicAutor}</p>
+          <p class="card-text">Precio: ${comicPrecio}</p>
           <button type="button" id="${comicId}" class="boton btn btn-primary">Comprar</button>   
           </div>`;
 
@@ -129,7 +129,7 @@ function buscar(e) {
     fetch('../BaseDeDatos/comics.json')
         .then((res) => res.json())
         .then((listaComics) => {
-            const resultado = listaComics.filter((comic) => comic.titulo.toLowerCase().includes(busqueda.value.toLowerCase()));
+            const resultado = listaComics.filter((comic) => comic.titulo.toLowerCase().includes(busqueda.value.toLowerCase()) || comic.autor.toLowerCase().includes(busqueda.value.toLowerCase()));
             if (resultado.length == 0) {
                 listaProductos.innerHTML = '';
                 let mensajeVacio = document.createElement("div");

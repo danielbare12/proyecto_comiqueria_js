@@ -53,8 +53,8 @@ function cargarPagina() {
                 <div class="descripcionCarrito">
                 <div>
                  <h2 class="tituloProducto">${comicTitulo}</h2>
-                 <p>Precio: ${comicPrecio}</p>
                  <p>Autor: ${comicAutor}</p>
+                 <p>Precio: ${comicPrecio}</p>
                  </div>
                  <div class="cantidadProducto"><p>Cantidad: ${comicCantidad}</p></div>
                  <div class="modificadorCantidad"><img class="aumentador" src="../media/suma.png" alt=""><img class="disminuidor" src="../media/resta.png" alt=""></div>
@@ -98,14 +98,8 @@ function cargarPagina() {
 
 }
 
-//Funcion para devolver la cantidad de un mismo producto
 
-function cantidad(idcomic) {
-    const resultado = listaProductos.filter((producto) => producto.id == idcomic);
-    return resultado.length;
-}
-
-//Funcion para sumar un grupo de numeros con spread
+//Funcion para sumar un todos los precios y devolver el total
 function sumarTotal(listaComics) {
     let total = 0;
 

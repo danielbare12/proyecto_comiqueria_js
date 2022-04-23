@@ -7,5 +7,8 @@
     {"id":6,"titulo":"One Piece Volumen 1","precio":600,"autor":"Eichiro Oda","imagen":"./media/onepiece.jpg","cantidad":1},
     {"id":7,"titulo":"One Piece Volumen 2","precio":600,"autor":"Eichiro Oda","imagen":"./media/onepiece2.jpg","cantidad":1},
     {"id":8,"titulo":"Sandman","precio":3000,"autor":"Warren Ellis","imagen":"./media/sandman.jpg","cantidad":1},
-    {"id":9,"titulo":"Batman: El Regreso Del Caballero Oscuro","precio":2300,"autor":"Frank Miller","imagen":"./media/batman2.jpg","cantidad":1}
+    {"id":9,"titulo":"Batman: El Regreso Del Caballero Oscuro","precio":2300,"autor":"Frank Miller","imagen":"./media/batman2.jpg","cantidad":1},
+    {"id":10,"titulo":"20th Century Boys","precio":1000,"autor":"Naoki Urasawa","imagen":"./media/centuryBoys.jpg","cantidad":1},
+    {"id":11,"titulo":"Invencible","precio":4500,"autor":"Robert Kirkman","imagen":"./media/invencible.jpg","cantidad":1},
+    {"id":12,"titulo":"El Guantelete Del Infinito","precio":4000,"autor":"Jim Starlin","imagen":"./media/vengadores.jpg","cantidad":1}
 ]
